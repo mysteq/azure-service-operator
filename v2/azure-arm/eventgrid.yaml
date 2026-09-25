@@ -44,6 +44,15 @@ groupModelConfiguration:
     EventSubscription:
       $exportAs: EventSubscription
       $supportedFrom: v2.21.0
+    Namespace:
+      $exportAs: Namespace
+      $supportedFrom: v2.22.0
+      $azureGeneratedSecrets:
+        - Key1
+        - Key2
+    TopicSpacesConfiguration:
+      RouteTopicResourceId:
+        $referenceType: arm
     StorageQueueEventSubscriptionDestinationProperties:
       QueueName:
         $importConfigMapMode: optional
