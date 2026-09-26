@@ -57,10 +57,6 @@ type NamespaceProperties struct {
 	// Once specified, this property cannot be updated.
 	IsZoneRedundant *bool `json:"isZoneRedundant,omitempty"`
 
-	// MinimumTlsVersionAllowed: Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version
-	// 1.2 is supported.
-	MinimumTlsVersionAllowed *NamespaceProperties_MinimumTlsVersionAllowed `json:"minimumTlsVersionAllowed,omitempty"`
-
 	// PublicNetworkAccess: This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso
 	// cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PubSub.NamespaceProperties.InboundIpRules" />
@@ -83,22 +79,6 @@ type NamespaceSku struct {
 
 	// Name: The name of the SKU.
 	Name *NamespaceSku_Name `json:"name,omitempty"`
-}
-
-// +kubebuilder:validation:Enum={"1.0","1.1","1.2"}
-type NamespaceProperties_MinimumTlsVersionAllowed string
-
-const (
-	NamespaceProperties_MinimumTlsVersionAllowed_10 = NamespaceProperties_MinimumTlsVersionAllowed("1.0")
-	NamespaceProperties_MinimumTlsVersionAllowed_11 = NamespaceProperties_MinimumTlsVersionAllowed("1.1")
-	NamespaceProperties_MinimumTlsVersionAllowed_12 = NamespaceProperties_MinimumTlsVersionAllowed("1.2")
-)
-
-// Mapping from string to NamespaceProperties_MinimumTlsVersionAllowed
-var namespaceProperties_MinimumTlsVersionAllowed_Values = map[string]NamespaceProperties_MinimumTlsVersionAllowed{
-	"1.0": NamespaceProperties_MinimumTlsVersionAllowed_10,
-	"1.1": NamespaceProperties_MinimumTlsVersionAllowed_11,
-	"1.2": NamespaceProperties_MinimumTlsVersionAllowed_12,
 }
 
 // +kubebuilder:validation:Enum={"Disabled","Enabled"}

@@ -273,10 +273,6 @@ type Namespace_Spec struct {
 	// Location: Location of the resource.
 	Location *string `json:"location,omitempty"`
 
-	// MinimumTlsVersionAllowed: Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version
-	// 1.2 is supported.
-	MinimumTlsVersionAllowed *NamespaceProperties_MinimumTlsVersionAllowed `json:"minimumTlsVersionAllowed,omitempty"`
-
 	// OperatorSpec: The specification for configuring operator behavior. This field is interpreted by the operator and not
 	// passed directly to Azure
 	OperatorSpec *NamespaceOperatorSpec `json:"operatorSpec,omitempty"`
@@ -336,7 +332,6 @@ func (namespace *Namespace_Spec) ConvertToARM(resolved genruntime.ConvertToARMRe
 	// Set property "Properties":
 	if namespace.InboundIpRules != nil ||
 		namespace.IsZoneRedundant != nil ||
-		namespace.MinimumTlsVersionAllowed != nil ||
 		namespace.PublicNetworkAccess != nil ||
 		namespace.TopicSpacesConfiguration != nil ||
 		namespace.TopicsConfiguration != nil {
@@ -352,12 +347,6 @@ func (namespace *Namespace_Spec) ConvertToARM(resolved genruntime.ConvertToARMRe
 	if namespace.IsZoneRedundant != nil {
 		isZoneRedundant := *namespace.IsZoneRedundant
 		result.Properties.IsZoneRedundant = &isZoneRedundant
-	}
-	if namespace.MinimumTlsVersionAllowed != nil {
-		var temp string
-		temp = string(*namespace.MinimumTlsVersionAllowed)
-		minimumTlsVersionAllowed := arm.NamespaceProperties_MinimumTlsVersionAllowed(temp)
-		result.Properties.MinimumTlsVersionAllowed = &minimumTlsVersionAllowed
 	}
 	if namespace.PublicNetworkAccess != nil {
 		var temp string
@@ -454,17 +443,6 @@ func (namespace *Namespace_Spec) PopulateFromARM(owner genruntime.ArbitraryOwner
 	if typedInput.Location != nil {
 		location := *typedInput.Location
 		namespace.Location = &location
-	}
-
-	// Set property "MinimumTlsVersionAllowed":
-	// copying flattened property:
-	if typedInput.Properties != nil {
-		if typedInput.Properties.MinimumTlsVersionAllowed != nil {
-			var temp string
-			temp = string(*typedInput.Properties.MinimumTlsVersionAllowed)
-			minimumTlsVersionAllowed := NamespaceProperties_MinimumTlsVersionAllowed(temp)
-			namespace.MinimumTlsVersionAllowed = &minimumTlsVersionAllowed
-		}
 	}
 
 	// no assignment for property "OperatorSpec"
@@ -632,15 +610,6 @@ func (namespace *Namespace_Spec) AssignProperties_From_Namespace_Spec(source *st
 	// Location
 	namespace.Location = genruntime.ClonePointerToString(source.Location)
 
-	// MinimumTlsVersionAllowed
-	if source.MinimumTlsVersionAllowed != nil {
-		minimumTlsVersionAllowed := *source.MinimumTlsVersionAllowed
-		minimumTlsVersionAllowedTemp := genruntime.ToEnum(minimumTlsVersionAllowed, namespaceProperties_MinimumTlsVersionAllowed_Values)
-		namespace.MinimumTlsVersionAllowed = &minimumTlsVersionAllowedTemp
-	} else {
-		namespace.MinimumTlsVersionAllowed = nil
-	}
-
 	// OperatorSpec
 	if source.OperatorSpec != nil {
 		var operatorSpec NamespaceOperatorSpec
@@ -759,14 +728,6 @@ func (namespace *Namespace_Spec) AssignProperties_To_Namespace_Spec(destination 
 
 	// Location
 	destination.Location = genruntime.ClonePointerToString(namespace.Location)
-
-	// MinimumTlsVersionAllowed
-	if namespace.MinimumTlsVersionAllowed != nil {
-		minimumTlsVersionAllowed := string(*namespace.MinimumTlsVersionAllowed)
-		destination.MinimumTlsVersionAllowed = &minimumTlsVersionAllowed
-	} else {
-		destination.MinimumTlsVersionAllowed = nil
-	}
 
 	// OperatorSpec
 	if namespace.OperatorSpec != nil {
@@ -890,14 +851,6 @@ func (namespace *Namespace_Spec) Initialize_From_Namespace_STATUS(source *Namesp
 
 	// Location
 	namespace.Location = genruntime.ClonePointerToString(source.Location)
-
-	// MinimumTlsVersionAllowed
-	if source.MinimumTlsVersionAllowed != nil {
-		minimumTlsVersionAllowed := genruntime.ToEnum(string(*source.MinimumTlsVersionAllowed), namespaceProperties_MinimumTlsVersionAllowed_Values)
-		namespace.MinimumTlsVersionAllowed = &minimumTlsVersionAllowed
-	} else {
-		namespace.MinimumTlsVersionAllowed = nil
-	}
 
 	// PublicNetworkAccess
 	if source.PublicNetworkAccess != nil {
@@ -1683,22 +1636,6 @@ func (operator *NamespaceOperatorSpec) AssignProperties_To_NamespaceOperatorSpec
 
 	// No error
 	return nil
-}
-
-// +kubebuilder:validation:Enum={"1.0","1.1","1.2"}
-type NamespaceProperties_MinimumTlsVersionAllowed string
-
-const (
-	NamespaceProperties_MinimumTlsVersionAllowed_10 = NamespaceProperties_MinimumTlsVersionAllowed("1.0")
-	NamespaceProperties_MinimumTlsVersionAllowed_11 = NamespaceProperties_MinimumTlsVersionAllowed("1.1")
-	NamespaceProperties_MinimumTlsVersionAllowed_12 = NamespaceProperties_MinimumTlsVersionAllowed("1.2")
-)
-
-// Mapping from string to NamespaceProperties_MinimumTlsVersionAllowed
-var namespaceProperties_MinimumTlsVersionAllowed_Values = map[string]NamespaceProperties_MinimumTlsVersionAllowed{
-	"1.0": NamespaceProperties_MinimumTlsVersionAllowed_10,
-	"1.1": NamespaceProperties_MinimumTlsVersionAllowed_11,
-	"1.2": NamespaceProperties_MinimumTlsVersionAllowed_12,
 }
 
 type NamespaceProperties_MinimumTlsVersionAllowed_STATUS string

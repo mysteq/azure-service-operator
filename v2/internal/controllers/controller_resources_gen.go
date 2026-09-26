@@ -1879,6 +1879,7 @@ func getKnownStorageTypes() []*registration.StorageType {
 		},
 	})
 	result = append(result, &registration.StorageType{Obj: new(eventgrid_v20250215s.Namespace)})
+	result = append(result, &registration.StorageType{Obj: new(eventgrid_v20250215s.NamespaceTopic)})
 	result = append(result, &registration.StorageType{Obj: new(eventgrid_v20250215s.Topic)})
 	result = append(result, &registration.StorageType{Obj: new(eventhub_v20240101s.Namespace)})
 	result = append(result, &registration.StorageType{Obj: new(eventhub_v20240101s.NamespacesAuthorizationRule)})
@@ -6314,6 +6315,11 @@ func getKnownTypes() []*registration.KnownType {
 			Validator: &eventgrid_v20250215w.Namespace{},
 		},
 		&registration.KnownType{
+			Obj:       new(eventgrid_v20250215.NamespaceTopic),
+			Defaulter: &eventgrid_v20250215w.NamespaceTopic{},
+			Validator: &eventgrid_v20250215w.NamespaceTopic{},
+		},
+		&registration.KnownType{
 			Obj:       new(eventgrid_v20250215.Topic),
 			Defaulter: &eventgrid_v20250215w.Topic{},
 			Validator: &eventgrid_v20250215w.Topic{},
@@ -6324,6 +6330,7 @@ func getKnownTypes() []*registration.KnownType {
 		&registration.KnownType{Obj: new(eventgrid_v20250215s.DomainsTopic)},
 		&registration.KnownType{Obj: new(eventgrid_v20250215s.EventSubscription)},
 		&registration.KnownType{Obj: new(eventgrid_v20250215s.Namespace)},
+		&registration.KnownType{Obj: new(eventgrid_v20250215s.NamespaceTopic)},
 		&registration.KnownType{Obj: new(eventgrid_v20250215s.Topic)})
 	result = append(
 		result,
@@ -9236,6 +9243,7 @@ func getResourceExtensions() []genruntime.ResourceExtension {
 	result = append(result, &eventgrid_customizations.DomainsTopicExtension{})
 	result = append(result, &eventgrid_customizations.EventSubscriptionExtension{})
 	result = append(result, &eventgrid_customizations.NamespaceExtension{})
+	result = append(result, &eventgrid_customizations.NamespaceTopicExtension{})
 	result = append(result, &eventgrid_customizations.TopicExtension{})
 	result = append(result, &eventhub_customizations.NamespaceExtension{})
 	result = append(result, &eventhub_customizations.NamespacesAuthorizationRuleExtension{})

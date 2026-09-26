@@ -308,7 +308,6 @@ func NamespacePropertiesGenerator() gopter.Gen {
 // AddIndependentPropertyGeneratorsForNamespaceProperties is a factory method for creating gopter generators
 func AddIndependentPropertyGeneratorsForNamespaceProperties(gens map[string]gopter.Gen) {
 	gens["IsZoneRedundant"] = gen.PtrOf(gen.Bool())
-	gens["MinimumTlsVersionAllowed"] = gen.PtrOf(gen.OneConstOf(NamespaceProperties_MinimumTlsVersionAllowed_10, NamespaceProperties_MinimumTlsVersionAllowed_11, NamespaceProperties_MinimumTlsVersionAllowed_12))
 	gens["PublicNetworkAccess"] = gen.PtrOf(gen.OneConstOf(NamespaceProperties_PublicNetworkAccess_Disabled, NamespaceProperties_PublicNetworkAccess_Enabled))
 }
 

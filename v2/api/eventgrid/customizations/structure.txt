@@ -9,5 +9,7 @@ EventSubscriptionExtension: Object (0 properties)
 
 NamespaceExtension: Object (0 properties)
 
+NamespaceTopicExtension: Object (0 properties)
+
 TopicExtension: Object (0 properties)
 

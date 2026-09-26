@@ -947,7 +947,6 @@ func AddIndependentPropertyGeneratorsForNamespace_Spec(gens map[string]gopter.Ge
 	gens["AzureName"] = gen.AlphaString()
 	gens["IsZoneRedundant"] = gen.PtrOf(gen.Bool())
 	gens["Location"] = gen.PtrOf(gen.AlphaString())
-	gens["MinimumTlsVersionAllowed"] = gen.PtrOf(gen.AlphaString())
 	gens["OriginalVersion"] = gen.AlphaString()
 	gens["PublicNetworkAccess"] = gen.PtrOf(gen.AlphaString())
 	gens["Tags"] = gen.MapOf(

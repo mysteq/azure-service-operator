@@ -128,7 +128,6 @@
 | MonitorAlertEventSubscriptionDestination_STATUS                               |               |           | v20250215 |
 | Namespace                                                                     |               |           | v20250215 |
 | NamespaceProperties                                                           |               |           | v20250215 |
-| NamespaceProperties_MinimumTlsVersionAllowed                                  |               |           | v20250215 |
 | NamespaceProperties_MinimumTlsVersionAllowed_STATUS                           |               |           | v20250215 |
 | NamespaceProperties_ProvisioningState_STATUS                                  |               |           | v20250215 |
 | NamespaceProperties_PublicNetworkAccess                                       |               |           | v20250215 |
@@ -138,12 +137,22 @@
 | NamespaceSku_Name                                                             |               |           | v20250215 |
 | NamespaceSku_Name_STATUS                                                      |               |           | v20250215 |
 | NamespaceSku_STATUS                                                           |               |           | v20250215 |
+| NamespaceTopic                                                                |               |           | v20250215 |
 | NamespaceTopicEventSubscriptionDestination                                    |               |           | v20250215 |
 | NamespaceTopicEventSubscriptionDestinationProperties                          |               |           | v20250215 |
 | NamespaceTopicEventSubscriptionDestinationProperties_STATUS                   |               |           | v20250215 |
 | NamespaceTopicEventSubscriptionDestination_EndpointType                       |               |           | v20250215 |
 | NamespaceTopicEventSubscriptionDestination_EndpointType_STATUS                |               |           | v20250215 |
 | NamespaceTopicEventSubscriptionDestination_STATUS                             |               |           | v20250215 |
+| NamespaceTopicProperties                                                      |               |           | v20250215 |
+| NamespaceTopicProperties_InputSchema                                          |               |           | v20250215 |
+| NamespaceTopicProperties_InputSchema_STATUS                                   |               |           | v20250215 |
+| NamespaceTopicProperties_ProvisioningState_STATUS                             |               |           | v20250215 |
+| NamespaceTopicProperties_PublisherType                                        |               |           | v20250215 |
+| NamespaceTopicProperties_PublisherType_STATUS                                 |               |           | v20250215 |
+| NamespaceTopicProperties_STATUS                                               |               |           | v20250215 |
+| NamespaceTopic_STATUS                                                         |               |           | v20250215 |
+| NamespaceTopic_Spec                                                           |               |           | v20250215 |
 | Namespace_STATUS                                                              |               |           | v20250215 |
 | Namespace_Spec                                                                |               |           | v20250215 |
 | NumberGreaterThanAdvancedFilter                                               | v1api20200601 | v20200601 | v20250215 |

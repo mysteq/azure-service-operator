@@ -1088,6 +1088,52 @@ EventSubscription_Spec: Object (2 properties)
         ├── EventTimeToLiveInMinutes: *int
         └── MaxDeliveryAttempts: *int
 
+NamespaceTopic_STATUS: Object (5 properties)
+├── Id: *string
+├── Name: *string
+├── Properties: *Object (4 properties)
+│   ├── EventRetentionInDays: *int
+│   ├── InputSchema: *Enum (1 value)
+│   │   └── "CloudEventSchemaV1_0"
+│   ├── ProvisioningState: *Enum (10 values)
+│   │   ├── "Canceled"
+│   │   ├── "CreateFailed"
+│   │   ├── "Creating"
+│   │   ├── "DeleteFailed"
+│   │   ├── "Deleted"
+│   │   ├── "Deleting"
+│   │   ├── "Failed"
+│   │   ├── "Succeeded"
+│   │   ├── "UpdatedFailed"
+│   │   └── "Updating"
+│   └── PublisherType: *Enum (1 value)
+│       └── "Custom"
+├── SystemData: *Object (6 properties)
+│   ├── CreatedAt: *string
+│   ├── CreatedBy: *string
+│   ├── CreatedByType: *Enum (4 values)
+│   │   ├── "Application"
+│   │   ├── "Key"
+│   │   ├── "ManagedIdentity"
+│   │   └── "User"
+│   ├── LastModifiedAt: *string
+│   ├── LastModifiedBy: *string
+│   └── LastModifiedByType: *Enum (4 values)
+│       ├── "Application"
+│       ├── "Key"
+│       ├── "ManagedIdentity"
+│       └── "User"
+└── Type: *string
+
+NamespaceTopic_Spec: Object (2 properties)
+├── Name: string
+└── Properties: *Object (3 properties)
+    ├── EventRetentionInDays: *int
+    ├── InputSchema: *Enum (1 value)
+    │   └── "CloudEventSchemaV1_0"
+    └── PublisherType: *Enum (1 value)
+        └── "Custom"
+
 Namespace_STATUS: Object (9 properties)
 ├── Id: *string
 ├── Identity: *Object (4 properties)
@@ -1215,16 +1261,12 @@ Namespace_Spec: Object (6 properties)
 │   └── UserAssignedIdentities: map[string]Object (0 properties)
 ├── Location: *string
 ├── Name: string
-├── Properties: *Object (6 properties)
+├── Properties: *Object (5 properties)
 │   ├── InboundIpRules: Object (2 properties)[]
 │   │   ├── Action: *Enum (1 value)
 │   │   │   └── "Allow"
 │   │   └── IpMask: *string
 │   ├── IsZoneRedundant: *bool
-│   ├── MinimumTlsVersionAllowed: *Enum (3 values)
-│   │   ├── "1.0"
-│   │   ├── "1.1"
-│   │   └── "1.2"
 │   ├── PublicNetworkAccess: *Enum (2 values)
 │   │   ├── "Disabled"
 │   │   └── "Enabled"
